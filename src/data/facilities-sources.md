@@ -55,6 +55,21 @@ Illustrative layout polygons are simplified rectangles derived from published fo
 
 **Water comparison:** 2,500 m³/day ÷ 0.137 m³/person/day ≈ 18,250 people → "about 18,000 people" (using the ~137 L/person/day benchmark above). The earlier Royal Leamington Spa reference (~76,000 residents) was ~4x too large and has been dropped.
 
+## Tier 4 — Blackdog AI Campus (proposed), Aberdeenshire
+
+| Field | Value | Source |
+|-------|-------|--------|
+| Power | 600 MW (initial phase) | [Press & Journal / Scotsman reporting](https://www.scotsman.com/news/plans-unveiled-for-multi-gigawatt-data-centre-near-aberdeen-7061476) — Ashfield Land & TechRE; long-term ambition is multi-gigawatt |
+| Site area | ~81 ha | ~200 acres (converted) per developer announcements |
+| Data halls | ~186,000 m² | Illustrative estimate scaled 2× from Tier 3 for double the initial power capacity |
+| Water | ~5,000 m³/day | Illustrative estimate for 600 MW AI-oriented cooling load (2× Tier 3) |
+| Coordinates | 57.2275°N, 2.0613°W | Blackdog rifle range / proposed campus site near Blackdog, north of Aberdeen ([Canmore NJ 964 152](https://canmore.org.uk/site/107253/blackdog-rifle-ranges)) |
+| Layout | ~900 × 900 m; eighteen hall blocks (145 × 71 m each ≈ 185,310 m²) | Same published site acreage as Tier 3; hall blocks doubled to match ~186,000 m² stated area |
+
+**Status:** Proposed — not yet built. Planning permission in principle exists for mixed business/industrial use (2017); detailed data-centre consent and construction timeline remain subject to commercial agreements. Developers cite offshore-wind and grid-connected power.
+
+**Water comparison:** 5,000 m³/day ÷ 0.137 m³/person/day ≈ 36,500 people → "about 36,000 people" (using the ~137 L/person/day benchmark above).
+
 ## Geocoding
 
 Place search uses [OpenStreetMap Nominatim](https://nominatim.openstreetmap.org/) (same ecosystem as map tiles). Submit-on-search only; no autocomplete polling.

@@ -202,5 +202,53 @@
         "offsetY": -380
       }
     }
+  },
+  {
+    "id": "tier-4-proposed-mega-campus",
+    "name": "Tier 4: Proposed Mega-Campus",
+    "powerCapacityMW": 600,
+    "realWorldExample": {
+      "name": "Blackdog AI Campus (proposed)",
+      "location": "Blackdog, Aberdeenshire, UK"
+    },
+    "exampleCoordinates": [-2.06126, 57.22752],
+    "footprint": {
+      "perimeterHectares": 81,
+      "dataHallsSqMeters": 186000
+    },
+    "resources": {
+      "waterCubicMetersPerDay": 5000,
+      "waterComparisonMetric": "Roughly the daily mains water use of a UK town of about 36,000 people"
+    },
+    "layoutDefinition": {
+      "perimeterWidthMeters": 900,
+      "perimeterHeightMeters": 900,
+      "halls": [
+        { "widthMeters": 145, "heightMeters": 71, "offsetX": -362.5, "offsetY": 200 },
+        { "widthMeters": 145, "heightMeters": 71, "offsetX": -217.5, "offsetY": 200 },
+        { "widthMeters": 145, "heightMeters": 71, "offsetX": -72.5, "offsetY": 200 },
+        { "widthMeters": 145, "heightMeters": 71, "offsetX": 72.5, "offsetY": 200 },
+        { "widthMeters": 145, "heightMeters": 71, "offsetX": 217.5, "offsetY": 200 },
+        { "widthMeters": 145, "heightMeters": 71, "offsetX": 362.5, "offsetY": 200 },
+        { "widthMeters": 145, "heightMeters": 71, "offsetX": -362.5, "offsetY": 0 },
+        { "widthMeters": 145, "heightMeters": 71, "offsetX": -217.5, "offsetY": 0 },
+        { "widthMeters": 145, "heightMeters": 71, "offsetX": -72.5, "offsetY": 0 },
+        { "widthMeters": 145, "heightMeters": 71, "offsetX": 72.5, "offsetY": 0 },
+        { "widthMeters": 145, "heightMeters": 71, "offsetX": 217.5, "offsetY": 0 },
+        { "widthMeters": 145, "heightMeters": 71, "offsetX": 362.5, "offsetY": 0 },
+        { "widthMeters": 145, "heightMeters": 71, "offsetX": -362.5, "offsetY": -200 },
+        { "widthMeters": 145, "heightMeters": 71, "offsetX": -217.5, "offsetY": -200 },
+        { "widthMeters": 145, "heightMeters": 71, "offsetX": -72.5, "offsetY": -200 },
+        { "widthMeters": 145, "heightMeters": 71, "offsetX": 72.5, "offsetY": -200 },
+        { "widthMeters": 145, "heightMeters": 71, "offsetX": 217.5, "offsetY": -200 },
+        { "widthMeters": 145, "heightMeters": 71, "offsetX": 362.5, "offsetY": -200 }
+      ],
+      "substation": {
+        "widthMeters": 150,
+        "heightMeters": 90,
+        "offsetX": 380,
+        "offsetY": -380
+      }
+    }
   }
 ]
