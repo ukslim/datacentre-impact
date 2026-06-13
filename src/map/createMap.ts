@@ -19,8 +19,8 @@ const OSM_STYLE: maplibregl.StyleSpecification = {
   ],
 };
 
-/** Harlow, UK — near Kao Data Campus (Tier 1 example). */
-const DEFAULT_CENTER: [number, number] = [0.1022, 51.7678];
+/** Kao Data Campus, Harlow, UK (Tier 1 example). */
+const DEFAULT_CENTER: [number, number] = [0.129379, 51.769104];
 
 export function createMap(container: HTMLElement): maplibregl.Map {
   return new maplibregl.Map({

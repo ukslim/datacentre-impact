@@ -7,7 +7,7 @@
       "name": "Kao Data Campus",
       "location": "Harlow, UK"
     },
-    "exampleCoordinates": [0.1022, 51.7678],
+    "exampleCoordinates": [0.129379, 51.769104],
     "footprint": {
       "perimeterHectares": 6.07,
       "dataHallsSqMeters": 13935
