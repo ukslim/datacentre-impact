@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Data Centre Impact Visualiser</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <div id="app">
+      <div id="map" aria-label="Facility footprint map"></div>
+      <aside id="controls" class="control-panel" aria-label="Map controls">
+        <header class="control-panel__header">
+          <div class="control-panel__title-row">
+            <h1>Data Centre Impact</h1>
+            <button
+              id="help-open-btn"
+              type="button"
+              class="control-panel__info-btn"
+              aria-label="How to use this map"
+              title="How to use this map"
+            >
+              i
+            </button>
+          </div>
+          <p class="control-panel__subtitle">Loading map…</p>
+          <p class="control-panel__nav-status" id="nav-status"></p>
+        </header>
+
+        <div class="control-panel__search-row">
+          <label class="control-panel__field control-panel__field--grow" for="location-search">
+            Find a place
+            <input
+              id="location-search"
+              type="search"
+              placeholder="e.g. Coventry, UK"
+              autocomplete="off"
+            />
+          </label>
+          <button id="location-search-btn" type="button" class="control-panel__btn">
+            Search
+          </button>
+        </div>
+
+        <button id="my-location-btn" type="button" class="control-panel__btn control-panel__btn--full">
+          My location
+        </button>
+
+        <div class="control-panel__field">
+          <span class="control-panel__label-row">
+            <label for="tier-select">Facility tier</label>
+            <button
+              id="estimates-open-btn"
+              type="button"
+              class="control-panel__info-btn"
+              aria-label="How to interpret these estimates"
+              title="How to interpret these estimates"
+            >
+              i
+            </button>
+          </span>
+          <select id="tier-select"></select>
+        </div>
+
+        <label class="control-panel__field" for="rotation-slider">
+          <span class="control-panel__label-row">
+            Overlay rotation
+            <span id="rotation-value" class="control-panel__rotation-value">0°</span>
+          </span>
+          <input id="rotation-slider" type="range" min="0" max="360" value="0" />
+        </label>
+
+        <p class="control-panel__hint">
+          Right-click and drag to rotate the map (MapLibre bearing).
+        </p>
+
+        <dl class="control-panel__metrics" id="metrics">
+          <div>
+            <dt>Site area</dt>
+            <dd>—</dd>
+          </div>
+          <div>
+            <dt>Data halls</dt>
+            <dd>—</dd>
+          </div>
+          <div>
+            <dt>Water use</dt>
+            <dd>—</dd>
+          </div>
+        </dl>
+      </aside>
+    </div>
+
+    <dialog id="help-dialog" class="help-dialog" aria-labelledby="help-dialog-title">
+      <div class="help-dialog__panel">
+        <header class="help-dialog__header">
+          <h2 id="help-dialog-title">About this map</h2>
+          <button id="help-close-btn" type="button" class="help-dialog__close" aria-label="Close">
+            Close
+          </button>
+        </header>
+
+        <div class="help-dialog__body">
+          <section>
+            <h3>Purpose</h3>
+            <p>
+              This tool helps you see the physical and environmental scale of modern AI data
+              centres by drawing an illustrative footprint on any map location you choose — your
+              neighbourhood, workplace, or a searched place — so you can compare site size, hall
+              area, and water use in familiar surroundings.
+            </p>
+          </section>
+
+          <section>
+            <h3>Map key</h3>
+            <p class="help-dialog__intro">
+              Colours match the overlay on the map. Shapes are simplified rectangles, not surveyed
+              boundaries.
+            </p>
+            <ul class="help-dialog__legend">
+              <li>
+                <span class="help-dialog__swatch help-dialog__swatch--perimeter" aria-hidden="true"></span>
+                <span>
+                  <strong>Site perimeter</strong> — fenced campus boundary (orange outline and tint).
+                </span>
+              </li>
+              <li>
+                <span class="help-dialog__swatch help-dialog__swatch--halls" aria-hidden="true"></span>
+                <span>
+                  <strong>Data halls</strong> — main IT / server building footprints (dark grey).
+                </span>
+              </li>
+              <li>
+                <span class="help-dialog__swatch help-dialog__swatch--substation" aria-hidden="true"></span>
+                <span>
+                  <strong>Substation &amp; grid plant</strong> — electrical intake and switchyard area
+                  (striped orange). Backup generators and other plant are not drawn separately on
+                  this simplified overlay.
+                </span>
+              </li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Positioning &amp; accuracy</h3>
+            <p>
+              The overlay is centred on the middle of the map view, not on a real facility’s
+              coordinates. Tier footprints are <strong>illustrative representations</strong>
+              loosely based on published examples (Kao Data Harlow, VIRTUS Stockley Park, Google
+              Campus 2 Iowa). Layout blocks inside each tier are approximate — useful for scale
+              comparison, not planning or engineering.
+            </p>
+            <p>
+              Metric readouts (hectares, m², m³/day) come from researched public sources where
+              available; sources and assumptions are documented in the project repository.
+            </p>
+          </section>
+
+          <section>
+            <h3>How to use</h3>
+            <ul class="help-dialog__list">
+              <li>
+                <strong>Find a place</strong> or <strong>My location</strong> — move the map to
+                where you want to compare scale.
+              </li>
+              <li>
+                <strong>Facility tier</strong> — switch between regional hub, hyperscale, and
+                mega-campus classes. The map stays put; only the overlay and metrics change.
+              </li>
+              <li>
+                <strong>Overlay rotation</strong> — rotate the footprint on the map without
+                changing map north (bearing).
+              </li>
+              <li>
+                <strong>Pan and zoom</strong> — the overlay recentres on the viewport when you
+                stop moving the map.
+              </li>
+              <li>
+                <strong>Right-click and drag</strong> — rotate the map itself (MapLibre bearing).
+              </li>
+            </ul>
+          </section>
+        </div>
+      </div>
+    </dialog>
+
+    <dialog id="estimates-dialog" class="help-dialog" aria-labelledby="estimates-dialog-title">
+      <div class="help-dialog__panel">
+        <header class="help-dialog__header">
+          <h2 id="estimates-dialog-title">About these estimates</h2>
+          <button id="estimates-close-btn" type="button" class="help-dialog__close" aria-label="Close">
+            Close
+          </button>
+        </header>
+
+        <div class="help-dialog__body">
+          <section>
+            <h3>How to read them</h3>
+            <p>
+              The figures shown for each tier — site area, data hall area, and water use — are
+              <strong>order-of-magnitude estimates</strong> meant to convey scale, not precise
+              specifications for any one facility. Treat them as "roughly this big," and use them
+              to compare tiers and to picture the footprint against places you know. The drawn
+              grey hall blocks are sized to match the stated data-hall area in every tier, so the
+              shapes and the numbers tell the same story.
+            </p>
+          </section>
+
+          <section>
+            <h3>How we reached them</h3>
+            <ul class="help-dialog__list">
+              <li>
+                <strong>Site area &amp; data halls</strong> — taken from published campus sizes and
+                technical floor areas for each tier's real-world example (Kao Data Harlow, VIRTUS
+                Stockley Park, Google Campus 2 Iowa), converting any imperial source figures to
+                metric.
+              </li>
+              <li>
+                <strong>Water — Tier 1</strong> — derived directly from the operator's reported
+                annual potable water use (Kao Data ESG report: ~18.2 million litres/year ≈ 50
+                m³/day).
+              </li>
+              <li>
+                <strong>Water — Tiers 2 &amp; 3</strong> — illustrative estimates for the cooling
+                load at that power level. The population comparison divides the daily water use by
+                the UK average mains use of ~137 litres per person per day, so "about N people"
+                means that many residents would use a similar amount of tap water each day.
+              </li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Caveats</h3>
+            <p>
+              Real facilities vary widely with cooling design, climate, and utilisation — a
+              free-air or adiabatic site can use a small fraction of the water of an
+              evaporative-cooled one at the same power. Figures and layouts are loosely based on
+              public examples and are not engineering or planning data. Full sources and the
+              arithmetic behind each number are documented in the project repository.
+            </p>
+          </section>
+        </div>
+      </div>
+    </dialog>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

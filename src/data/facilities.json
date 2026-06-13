@@ -1,0 +1,206 @@
+[
+  {
+    "id": "tier-1-regional-hub",
+    "name": "Tier 1: Regional Hub",
+    "powerCapacityMW": 40,
+    "realWorldExample": {
+      "name": "Kao Data Campus",
+      "location": "Harlow, UK"
+    },
+    "exampleCoordinates": [0.1022, 51.7678],
+    "footprint": {
+      "perimeterHectares": 6.07,
+      "dataHallsSqMeters": 13935
+    },
+    "resources": {
+      "waterCubicMetersPerDay": 50,
+      "waterComparisonMetric": "Approximate daily average from Kao Data’s reported FY2023-24 company potable water use (~18.2 million litres per year)"
+    },
+    "layoutDefinition": {
+      "perimeterWidthMeters": 280,
+      "perimeterHeightMeters": 220,
+      "halls": [
+        {
+          "widthMeters": 85,
+          "heightMeters": 40,
+          "offsetX": -55,
+          "offsetY": 35
+        },
+        {
+          "widthMeters": 85,
+          "heightMeters": 40,
+          "offsetX": 55,
+          "offsetY": 35
+        },
+        {
+          "widthMeters": 85,
+          "heightMeters": 40,
+          "offsetX": -55,
+          "offsetY": -25
+        },
+        {
+          "widthMeters": 85,
+          "heightMeters": 40,
+          "offsetX": 55,
+          "offsetY": -25
+        }
+      ],
+      "substation": {
+        "widthMeters": 45,
+        "heightMeters": 30,
+        "offsetX": 110,
+        "offsetY": -85
+      }
+    }
+  },
+  {
+    "id": "tier-2-standard-hyperscale",
+    "name": "Tier 2: Standard Hyperscale",
+    "powerCapacityMW": 100,
+    "realWorldExample": {
+      "name": "VIRTUS Stockley Park",
+      "location": "London, UK"
+    },
+    "exampleCoordinates": [-0.4524, 51.5055],
+    "footprint": {
+      "perimeterHectares": 10.1,
+      "dataHallsSqMeters": 32516
+    },
+    "resources": {
+      "waterCubicMetersPerDay": 350,
+      "waterComparisonMetric": "Roughly the daily mains water use of a UK town of about 2,600 people"
+    },
+    "layoutDefinition": {
+      "perimeterWidthMeters": 400,
+      "perimeterHeightMeters": 250,
+      "halls": [
+        {
+          "widthMeters": 100,
+          "heightMeters": 50,
+          "offsetX": -90,
+          "offsetY": 50
+        },
+        {
+          "widthMeters": 100,
+          "heightMeters": 50,
+          "offsetX": 0,
+          "offsetY": 50
+        },
+        {
+          "widthMeters": 100,
+          "heightMeters": 50,
+          "offsetX": 90,
+          "offsetY": 50
+        },
+        {
+          "widthMeters": 100,
+          "heightMeters": 50,
+          "offsetX": -90,
+          "offsetY": -20
+        },
+        {
+          "widthMeters": 100,
+          "heightMeters": 50,
+          "offsetX": 0,
+          "offsetY": -20
+        },
+        {
+          "widthMeters": 100,
+          "heightMeters": 50,
+          "offsetX": 90,
+          "offsetY": -20
+        }
+      ],
+      "substation": {
+        "widthMeters": 60,
+        "heightMeters": 40,
+        "offsetX": 160,
+        "offsetY": -95
+      }
+    }
+  },
+  {
+    "id": "tier-3-ai-mega-campus",
+    "name": "Tier 3: AI Mega-Campus",
+    "powerCapacityMW": 300,
+    "realWorldExample": {
+      "name": "Google Campus 2",
+      "location": "Iowa, USA"
+    },
+    "exampleCoordinates": [-95.8517, 41.2619],
+    "footprint": {
+      "perimeterHectares": 81,
+      "dataHallsSqMeters": 92903
+    },
+    "resources": {
+      "waterCubicMetersPerDay": 2500,
+      "waterComparisonMetric": "Roughly the daily mains water use of a UK town of about 18,000 people"
+    },
+    "layoutDefinition": {
+      "perimeterWidthMeters": 900,
+      "perimeterHeightMeters": 900,
+      "halls": [
+        {
+          "widthMeters": 145,
+          "heightMeters": 71,
+          "offsetX": -250,
+          "offsetY": 200
+        },
+        {
+          "widthMeters": 145,
+          "heightMeters": 71,
+          "offsetX": 0,
+          "offsetY": 200
+        },
+        {
+          "widthMeters": 145,
+          "heightMeters": 71,
+          "offsetX": 250,
+          "offsetY": 200
+        },
+        {
+          "widthMeters": 145,
+          "heightMeters": 71,
+          "offsetX": -250,
+          "offsetY": 0
+        },
+        {
+          "widthMeters": 145,
+          "heightMeters": 71,
+          "offsetX": 0,
+          "offsetY": 0
+        },
+        {
+          "widthMeters": 145,
+          "heightMeters": 71,
+          "offsetX": 250,
+          "offsetY": 0
+        },
+        {
+          "widthMeters": 145,
+          "heightMeters": 71,
+          "offsetX": -250,
+          "offsetY": -200
+        },
+        {
+          "widthMeters": 145,
+          "heightMeters": 71,
+          "offsetX": 0,
+          "offsetY": -200
+        },
+        {
+          "widthMeters": 145,
+          "heightMeters": 71,
+          "offsetX": 250,
+          "offsetY": -200
+        }
+      ],
+      "substation": {
+        "widthMeters": 120,
+        "heightMeters": 80,
+        "offsetX": 380,
+        "offsetY": -380
+      }
+    }
+  }
+]
