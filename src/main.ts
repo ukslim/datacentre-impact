@@ -33,6 +33,14 @@ const state = createAppState({
 const map = createMap(mapContainer);
 map.addControl(new maplibregl.NavigationControl(), 'top-right');
 
+const mapResizeObserver = new ResizeObserver(() => {
+  map.resize();
+  if (isOverlayReady(map)) {
+    state.setState({ centerCoordinates: getViewportCenter(map) });
+  }
+});
+mapResizeObserver.observe(mapContainer);
+
 function refreshOverlay(): void {
   if (!isOverlayReady(map)) {
     return;
