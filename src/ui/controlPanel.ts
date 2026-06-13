@@ -11,6 +11,7 @@ import { getCurrentPosition } from '../utils/geolocation';
 import { searchPlace } from '../utils/nominatim';
 import { flyToLngLat, URBAN_NAV_ZOOM } from '../map/navigate';
 import type { createAppState } from '../state/appState';
+import { trackEvent } from '../utils/analytics';
 
 type AppStateStore = ReturnType<typeof createAppState>;
 
@@ -41,6 +42,7 @@ export function initControlPanel(
 
   elements.tierSelect.addEventListener('change', () => {
     const selectedId = elements.tierSelect.value;
+    trackEvent(`tier-${selectedId}`);
     state.setState({ selectedTierId: selectedId });
     const selected = findFacility(facilities, selectedId);
     updateSubtitle(elements.subtitle, selected);
@@ -141,6 +143,7 @@ async function handleSearch(
     }
 
     flyToLngLat(map, [result.lng, result.lat], URBAN_NAV_ZOOM);
+    trackEvent('nav-search-success');
     setNavStatus(elements.navStatus, `Found: ${result.displayName}`);
   } catch (error) {
     const message = error instanceof Error ? error.message : 'Search failed.';
@@ -160,6 +163,7 @@ async function handleMyLocation(
   try {
     const position = await getCurrentPosition();
     flyToLngLat(map, position, URBAN_NAV_ZOOM);
+    trackEvent('nav-my-location-success');
     setNavStatus(elements.navStatus, 'Showing your current location.');
   } catch (error) {
     const message = error instanceof Error ? error.message : 'Location unavailable.';
